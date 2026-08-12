@@ -18,12 +18,7 @@
     "Angular",
     "DataTables"
   ],
-  "author": "Louis LIN <lin.louis@pm.me> (https://l-lin.github.io/)",
-  "contributors": [
-    "Michael Bennett <michael@strukt.org>",
-    "Steven Masala <me@smasalai.com>",
-    "Surya Teja K <shanmukhateja@gmail.com>"
-  ],
+  "author": "Dev Shah (https://github.com/dhshah-in)",
   "schematics": "./lib/schematics/src/collection.json",
   "main": "index.js",
   "module": "index.js",
@@ -91,10 +86,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/l-lin/angular-datatables.git"
+    "url": "git+https://github.com/dhshah-in/angular-datatables.git"
   },
   "bugs": {
-    "url": "https://github.com/l-lin/angular-datatables/issues"
+    "url": "https://github.com/dhshah-in/angular-datatables/issues"
   },
-  "homepage": "https://github.com/l-lin/angular-datatables#readme"
+  "homepage": "https://github.com/dhshah-in/angular-datatables#readme"
 }

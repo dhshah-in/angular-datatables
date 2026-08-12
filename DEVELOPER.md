@@ -17,7 +17,7 @@ We recommend [nvm](https://github.com/creationix/nvm) or [n](https://github.com/
 Clone this repo into new project folder (e.g., `my-proj`).
 
 ```bash
-git clone  https://github.com/l-lin/angular-datatables
+git clone  https://github.com/dhshah-in/angular-datatables
 cd angular-datatables
 ```
 
@@ -131,7 +131,7 @@ npm version major
 npm version 8.3.2
 ```
 
-Then go to the [release page](https://github.com/l-lin/angular-datatables/releases) and manually
+Then go to the [release page](https://github.com/dhshah-in/angular-datatables/releases) and manually
 create a new release. There is an automatic [Github action](./.github/workflows/publish.yml) that
 publishes automatically to NPM repository.
 
@@ -169,7 +169,7 @@ To test schematics, you will need to setup `verdaccio`, publish the library loca
 6. Now, publish the library to `verdaccio` by running the command:
 
    ```sh
-   # Make sure you compiled the library first! 
+   # Make sure you compiled the library first!
    # `npm run build:lib`
    cd dist/lib
    npm publish --registry http://localhost:4873
