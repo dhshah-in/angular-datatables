@@ -3,33 +3,36 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { NO_ERRORS_SCHEMA, SecurityContext } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DataTableDirective, DataTablesModule } from 'angular-datatables';
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownModule, SANITIZE } from 'ngx-markdown';
 import { BaseDemoComponent } from '../base-demo/base-demo.component';
 import { AppRoutingModule } from '../app.routing';
 import { FormsModule } from '@angular/forms';
 import { RowClickEventComponent } from './row-click-event.component';
 
 
-let fixture: ComponentFixture<RowClickEventComponent>, component: null| RowClickEventComponent = null;
+let fixture: ComponentFixture<RowClickEventComponent>, component: null | RowClickEventComponent = null;
 
 describe('RowClickEventComponent', () => {
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-    declarations: [
+      declarations: [
         BaseDemoComponent,
         RowClickEventComponent,
         DataTableDirective
-    ],
-    schemas: [NO_ERRORS_SCHEMA],
-    imports: [AppRoutingModule,
+      ],
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [AppRoutingModule,
         RouterTestingModule,
         DataTablesModule,
         MarkdownModule.forRoot({
-            sanitize: SecurityContext.NONE
+          sanitize: {
+            provide: SANITIZE,
+            useValue: SecurityContext.NONE
+          }
         }),
         FormsModule],
-    providers: [provideHttpClient(withInterceptorsFromDi())]
-}).createComponent(RowClickEventComponent);
+      providers: [provideHttpClient(withInterceptorsFromDi())]
+    }).createComponent(RowClickEventComponent);
 
     component = fixture.componentInstance;
 

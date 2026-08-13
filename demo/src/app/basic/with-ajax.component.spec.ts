@@ -3,32 +3,35 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { NO_ERRORS_SCHEMA, SecurityContext } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DataTableDirective, DataTablesModule } from 'angular-datatables';
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownModule, SANITIZE } from 'ngx-markdown';
 import { BaseDemoComponent } from '../base-demo/base-demo.component';
 import { WithAjaxComponent } from './with-ajax.component';
 import { AppRoutingModule } from '../app.routing';
 import { By } from '@angular/platform-browser';
 
 
-let fixture: ComponentFixture<WithAjaxComponent>, component: null| WithAjaxComponent = null;
+let fixture: ComponentFixture<WithAjaxComponent>, component: null | WithAjaxComponent = null;
 
 describe('WithAjaxComponent', () => {
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-    declarations: [
+      declarations: [
         BaseDemoComponent,
         WithAjaxComponent,
         DataTableDirective
-    ],
-    schemas: [NO_ERRORS_SCHEMA],
-    imports: [AppRoutingModule,
+      ],
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [AppRoutingModule,
         RouterTestingModule,
         DataTablesModule,
         MarkdownModule.forRoot({
-            sanitize: SecurityContext.NONE
+          sanitize: {
+            provide: SANITIZE,
+            useValue: SecurityContext.NONE
+          }
         })],
-    providers: [provideHttpClient(withInterceptorsFromDi())]
-}).createComponent(WithAjaxComponent);
+      providers: [provideHttpClient(withInterceptorsFromDi())]
+    }).createComponent(WithAjaxComponent);
 
     component = fixture.componentInstance;
 

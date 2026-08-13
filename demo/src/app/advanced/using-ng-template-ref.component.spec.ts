@@ -3,7 +3,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { NO_ERRORS_SCHEMA, SecurityContext } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DataTableDirective, DataTablesModule } from 'angular-datatables';
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownModule, SANITIZE } from 'ngx-markdown';
 import { BaseDemoComponent } from '../base-demo/base-demo.component';
 import { AppRoutingModule } from '../app.routing';
 import { FormsModule } from '@angular/forms';
@@ -13,30 +13,33 @@ import { UsingNgTemplateRefComponent } from './using-ng-template-ref.component';
 import { DemoNgComponent } from './demo-ng-template-ref.component';
 
 
-let fixture: ComponentFixture<UsingNgTemplateRefComponent>, component: null| UsingNgTemplateRefComponent = null;
+let fixture: ComponentFixture<UsingNgTemplateRefComponent>, component: null | UsingNgTemplateRefComponent = null;
 
 describe('UsingNgTemplateRefComponent', () => {
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-    declarations: [
+      declarations: [
         BaseDemoComponent,
         UsingNgTemplateRefComponent,
         DemoNgComponent,
         DataTableDirective
-    ],
-    schemas: [NO_ERRORS_SCHEMA],
-    imports: [AppRoutingModule,
+      ],
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [AppRoutingModule,
         RouterTestingModule,
         DataTablesModule,
         MarkdownModule.forRoot({
-            sanitize: SecurityContext.NONE
+          sanitize: {
+            provide: SANITIZE,
+            useValue: SecurityContext.NONE
+          }
         }),
         FormsModule],
-    providers: [
+      providers: [
         UpperCasePipe,
         provideHttpClient(withInterceptorsFromDi())
-    ]
-}).createComponent(UsingNgTemplateRefComponent);
+      ]
+    }).createComponent(UsingNgTemplateRefComponent);
 
     component = fixture.componentInstance;
 

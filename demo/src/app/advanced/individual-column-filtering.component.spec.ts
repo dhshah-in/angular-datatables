@@ -3,7 +3,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { NO_ERRORS_SCHEMA, SecurityContext } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DataTableDirective, DataTablesModule } from 'angular-datatables';
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownModule, SANITIZE } from 'ngx-markdown';
 import { BaseDemoComponent } from '../base-demo/base-demo.component';
 import { AppRoutingModule } from '../app.routing';
 import { By } from '@angular/platform-browser';
@@ -12,7 +12,7 @@ import { IndividualColumnFilteringComponent } from './individual-column-filterin
 import { Api } from 'datatables.net';
 
 
-let fixture: ComponentFixture<IndividualColumnFilteringComponent>, component: null| IndividualColumnFilteringComponent = null;
+let fixture: ComponentFixture<IndividualColumnFilteringComponent>, component: null | IndividualColumnFilteringComponent = null;
 
 function applyValueToInput(inputElement: HTMLInputElement, value: string, table: Api) {
   inputElement.value = value;
@@ -24,21 +24,24 @@ function applyValueToInput(inputElement: HTMLInputElement, value: string, table:
 describe('IndividualColumnFilteringComponent', () => {
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-    declarations: [
+      declarations: [
         BaseDemoComponent,
         IndividualColumnFilteringComponent,
         DataTableDirective
-    ],
-    schemas: [NO_ERRORS_SCHEMA],
-    imports: [AppRoutingModule,
+      ],
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [AppRoutingModule,
         RouterTestingModule,
         DataTablesModule,
         MarkdownModule.forRoot({
-            sanitize: SecurityContext.NONE
+          sanitize: {
+            provide: SANITIZE,
+            useValue: SecurityContext.NONE
+          }
         }),
         FormsModule],
-    providers: [provideHttpClient(withInterceptorsFromDi())]
-}).createComponent(IndividualColumnFilteringComponent);
+      providers: [provideHttpClient(withInterceptorsFromDi())]
+    }).createComponent(IndividualColumnFilteringComponent);
 
     component = fixture.componentInstance;
 

@@ -3,40 +3,44 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { NO_ERRORS_SCHEMA, SecurityContext } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DataTableDirective, DataTablesModule } from 'angular-datatables';
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownModule, SANITIZE } from 'ngx-markdown';
 import { BaseDemoComponent } from '../base-demo/base-demo.component';
 import { AppRoutingModule } from '../app.routing';
 import { FormsModule } from '@angular/forms';
 import { UsingNgPipeComponent } from './using-ng-pipe.component';
 import { UpperCasePipe, CurrencyPipe } from '@angular/common';
 import { By } from '@angular/platform-browser';
-import { Person } from 'app/person';
+import { Person } from '../person';
 
 
-let fixture: ComponentFixture<UsingNgPipeComponent>, component: null| UsingNgPipeComponent = null;
+
+let fixture: ComponentFixture<UsingNgPipeComponent>, component: null | UsingNgPipeComponent = null;
 
 describe('UsingNgPipeComponent', () => {
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-    declarations: [
+      declarations: [
         BaseDemoComponent,
         UsingNgPipeComponent,
         DataTableDirective
-    ],
-    schemas: [NO_ERRORS_SCHEMA],
-    imports: [AppRoutingModule,
+      ],
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [AppRoutingModule,
         RouterTestingModule,
         DataTablesModule,
         MarkdownModule.forRoot({
-            sanitize: SecurityContext.NONE
+          sanitize: {
+            provide: SANITIZE,
+            useValue: SecurityContext.NONE
+          }
         }),
         FormsModule],
-    providers: [
+      providers: [
         UpperCasePipe,
         CurrencyPipe,
         provideHttpClient(withInterceptorsFromDi())
-    ]
-}).createComponent(UsingNgPipeComponent);
+      ]
+    }).createComponent(UsingNgPipeComponent);
 
     component = fixture.componentInstance;
 
@@ -104,7 +108,7 @@ describe('UsingNgPipeComponent', () => {
 
       const IdFromData = (instance.row(dataRow).data() as Person).id;
       const IdFromTable = $('td:nth-child(1)', dataRow).text();
-      return IdFromTable === pipeInstance.transform(IdFromData,'USD','symbol');
+      return IdFromTable === pipeInstance.transform(IdFromData, 'USD', 'symbol');
     }))
       .toEqual(expectedArray);
   });
