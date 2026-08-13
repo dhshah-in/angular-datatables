@@ -1,6 +1,6 @@
 {
   "name": "angular-datatables-workspace",
-  "version": "20.0.0",
+  "version": "20.0.1",
   "description": "Angular directive for DataTables",
   "scripts": {
     "start": "npm run link:lib && ng serve",
@@ -46,7 +46,7 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "linklocal": "^2.8.2",
     "ng-packagr": "^20.3.2",
-    "ngx-markdown": "^19.0.0",
+    "ngx-markdown": "^20.1.0",
     "rimraf": "~3.0.2",
     "typescript": "~5.9.3"
   },
