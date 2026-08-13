@@ -3,7 +3,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { NO_ERRORS_SCHEMA, SecurityContext } from '@angular/core';
 import { ComponentFixture, TestBed, tick, waitForAsync } from '@angular/core/testing';
 import { DataTableDirective, DataTablesModule } from 'angular-datatables';
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownModule, SANITIZE } from 'ngx-markdown';
 import { BaseDemoComponent } from '../base-demo/base-demo.component';
 import { AppRoutingModule } from '../app.routing';
 import { By } from '@angular/platform-browser';
@@ -11,26 +11,29 @@ import { FormsModule } from '@angular/forms';
 import { DtInstanceComponent } from './dt-instance.component';
 
 
-let fixture: ComponentFixture<DtInstanceComponent>, component: null| DtInstanceComponent = null;
+let fixture: ComponentFixture<DtInstanceComponent>, component: null | DtInstanceComponent = null;
 
 describe('DtInstanceComponent', () => {
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-    declarations: [
+      declarations: [
         BaseDemoComponent,
         DtInstanceComponent,
         DataTableDirective
-    ],
-    schemas: [NO_ERRORS_SCHEMA],
-    imports: [AppRoutingModule,
+      ],
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [AppRoutingModule,
         RouterTestingModule,
         DataTablesModule,
         MarkdownModule.forRoot({
-            sanitize: SecurityContext.NONE
+          sanitize: {
+            provide: SANITIZE,
+            useValue: SecurityContext.NONE
+          }
         }),
         FormsModule],
-    providers: [provideHttpClient(withInterceptorsFromDi())]
-}).createComponent(DtInstanceComponent);
+      providers: [provideHttpClient(withInterceptorsFromDi())]
+    }).createComponent(DtInstanceComponent);
 
     component = fixture.componentInstance;
 

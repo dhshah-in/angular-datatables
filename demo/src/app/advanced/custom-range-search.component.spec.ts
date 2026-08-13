@@ -3,7 +3,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { NO_ERRORS_SCHEMA, SecurityContext } from '@angular/core';
 import { ComponentFixture, TestBed, tick, waitForAsync } from '@angular/core/testing';
 import { DataTableDirective, DataTablesModule } from 'angular-datatables';
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownModule, SANITIZE } from 'ngx-markdown';
 import { BaseDemoComponent } from '../base-demo/base-demo.component';
 import { AppRoutingModule } from '../app.routing';
 import { By } from '@angular/platform-browser';
@@ -11,26 +11,29 @@ import { CustomRangeSearchComponent } from './custom-range-search.component';
 import { FormsModule } from '@angular/forms';
 
 
-let fixture: ComponentFixture<CustomRangeSearchComponent>, component: null| CustomRangeSearchComponent = null;
+let fixture: ComponentFixture<CustomRangeSearchComponent>, component: null | CustomRangeSearchComponent = null;
 
 describe('CustomRangeSearchComponent', () => {
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-    declarations: [
+      declarations: [
         BaseDemoComponent,
         CustomRangeSearchComponent,
         DataTableDirective
-    ],
-    schemas: [NO_ERRORS_SCHEMA],
-    imports: [AppRoutingModule,
+      ],
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [AppRoutingModule,
         RouterTestingModule,
         DataTablesModule,
         MarkdownModule.forRoot({
-            sanitize: SecurityContext.NONE
+          sanitize: {
+            provide: SANITIZE,
+            useValue: SecurityContext.NONE
+          }
         }),
         FormsModule],
-    providers: [provideHttpClient(withInterceptorsFromDi())]
-}).createComponent(CustomRangeSearchComponent);
+      providers: [provideHttpClient(withInterceptorsFromDi())]
+    }).createComponent(CustomRangeSearchComponent);
 
     component = fixture.componentInstance;
 

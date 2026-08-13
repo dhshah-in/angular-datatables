@@ -41,7 +41,7 @@ import { UsingNgPipeComponent } from './advanced/using-ng-pipe.component';
 import { CommonModule, CurrencyPipe, UpperCasePipe } from '@angular/common';
 
 // Markdown
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownModule, SANITIZE } from 'ngx-markdown';
 import { BaseDemoComponent } from './base-demo/base-demo.component';
 import { FAQComponent } from './f-a-q/f-a-q.component';
 import { UsingNgTemplateRefComponent } from './advanced/using-ng-template-ref.component';
@@ -92,7 +92,10 @@ import { NewServerSideComponent } from './basic/new-server-side/new-server-side.
     DataTablesModule,
     AppRoutingModule,
     MarkdownModule.forRoot({
-      sanitize: SecurityContext.NONE
+      sanitize: {
+        provide: SANITIZE,
+        useValue: SecurityContext.NONE
+      }
     })],
   providers: [
     UpperCasePipe,

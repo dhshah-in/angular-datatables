@@ -3,7 +3,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { NO_ERRORS_SCHEMA, QueryList, SecurityContext } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DataTableDirective, DataTablesModule } from 'angular-datatables';
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownModule, SANITIZE } from 'ngx-markdown';
 import { BaseDemoComponent } from '../base-demo/base-demo.component';
 import { AppRoutingModule } from '../app.routing';
 import { By } from '@angular/platform-browser';
@@ -11,26 +11,29 @@ import { FormsModule } from '@angular/forms';
 import { MultipleTablesComponent } from './multiple-tables.component';
 
 
-let fixture: ComponentFixture<MultipleTablesComponent>, component: null| MultipleTablesComponent = null;
+let fixture: ComponentFixture<MultipleTablesComponent>, component: null | MultipleTablesComponent = null;
 
 describe('MultipleTablesComponent', () => {
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-    declarations: [
+      declarations: [
         BaseDemoComponent,
         MultipleTablesComponent,
         DataTableDirective
-    ],
-    schemas: [NO_ERRORS_SCHEMA],
-    imports: [AppRoutingModule,
+      ],
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [AppRoutingModule,
         RouterTestingModule,
         DataTablesModule,
         MarkdownModule.forRoot({
-            sanitize: SecurityContext.NONE
+          sanitize: {
+            provide: SANITIZE,
+            useValue: SecurityContext.NONE
+          }
         }),
         FormsModule],
-    providers: [provideHttpClient(withInterceptorsFromDi())]
-}).createComponent(MultipleTablesComponent);
+      providers: [provideHttpClient(withInterceptorsFromDi())]
+    }).createComponent(MultipleTablesComponent);
 
     component = fixture.componentInstance;
 

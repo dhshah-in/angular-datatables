@@ -3,7 +3,7 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { NO_ERRORS_SCHEMA, SecurityContext } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DataTableDirective, DataTablesModule } from 'angular-datatables';
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownModule, SANITIZE } from 'ngx-markdown';
 import { BaseDemoComponent } from '../base-demo/base-demo.component';
 import { AppRoutingModule } from '../app.routing';
 import { By } from '@angular/platform-browser';
@@ -11,26 +11,29 @@ import { FormsModule } from '@angular/forms';
 import { LoadDtOptionsWithPromiseComponent } from './load-dt-options-with-promise.component';
 
 
-let fixture: ComponentFixture<LoadDtOptionsWithPromiseComponent>, component: null| LoadDtOptionsWithPromiseComponent = null;
+let fixture: ComponentFixture<LoadDtOptionsWithPromiseComponent>, component: null | LoadDtOptionsWithPromiseComponent = null;
 
 describe('LoadDtOptionsWithPromiseComponent', () => {
   beforeEach(() => {
     fixture = TestBed.configureTestingModule({
-    declarations: [
+      declarations: [
         BaseDemoComponent,
         LoadDtOptionsWithPromiseComponent,
         DataTableDirective
-    ],
-    schemas: [NO_ERRORS_SCHEMA],
-    imports: [AppRoutingModule,
+      ],
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [AppRoutingModule,
         RouterTestingModule,
         DataTablesModule,
         MarkdownModule.forRoot({
-            sanitize: SecurityContext.NONE
+          sanitize: {
+            provide: SANITIZE,
+            useValue: SecurityContext.NONE
+          }
         }),
         FormsModule],
-    providers: [provideHttpClient(withInterceptorsFromDi())]
-}).createComponent(LoadDtOptionsWithPromiseComponent);
+      providers: [provideHttpClient(withInterceptorsFromDi())]
+    }).createComponent(LoadDtOptionsWithPromiseComponent);
 
     component = fixture.componentInstance;
 
