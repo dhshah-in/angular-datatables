@@ -1,9 +1,6 @@
-> [!CAUTION]
-> This project is no longer maintained! Feel free to fork it to your needs.
-
 # Angular DataTables
 
-![build](https://github.com/l-lin/angular-datatables/workflows/build/badge.svg)
+![build](https://github.com/dhshah-in/angular-datatables/workflows/build/badge.svg)
 [![npm](https://img.shields.io/npm/v/angular-datatables.svg)][npm-link]
 [![npm](https://img.shields.io/npm/dm/angular-datatables.svg)][npm-link]
 
@@ -11,7 +8,7 @@
 
 # Documentation
 
-Please check the [online documentation](http://l-lin.github.io/angular-datatables/)
+Please check the documentation in this repository and the examples in the demo application.
 
 # Versioning
 
@@ -22,9 +19,17 @@ synchronized with the major version of Angular.
 
 Check the [developer guide](DEVELOPER.md)
 
+# About this fork
+
+This project is an independently maintained fork of
+[angular-datatables](https://github.com/l-lin/angular-datatables),
+originally created and maintained by Louis LIN and contributors.
+
+This fork is maintained by @dev-aix and focuses on maintaining compatibility
+with newer Angular versions while preserving the existing Angular DataTables API.
+
 # LICENSE
 
 [MIT](LICENSE)
 
-[npm-link]: https://www.npmjs.com/package/angular-datatables
-
+[npm-link]: https://www.npmjs.com/package/@dev-aix/angular-datatables

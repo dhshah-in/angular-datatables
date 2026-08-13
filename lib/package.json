@@ -1,23 +1,18 @@
 {
-  "name": "angular-datatables",
-  "version": "19.0.0",
+  "name": "@dev-aix/angular-datatables",
+  "version": "20.0.1",
   "description": "Angular directive for DataTables",
   "keywords": [
     "Angular",
     "DataTables"
   ],
-  "author": "Louis LIN <lin.louis@pm.me> (https://l-lin.github.io/)",
-  "contributors": [
-    "Michael Bennett <michael@strukt.org>",
-    "Steven Masala <me@smasalai.com>",
-    "Surya Teja K <shanmukhateja@gmail.com>"
-  ],
+  "author": "Dev Shah (https://github.com/dhshah-in)",
   "schematics": "./schematics/src/collection.json",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^19.0.1",
-    "@angular/core": "^19.0.1",
-    "@angular/platform-browser": "^19.0.1",
+    "@angular/common": "^20.0.0",
+    "@angular/core": "^20.0.0",
+    "@angular/platform-browser": "^20.0.0",
     "datatables.net": "^2.0.3",
     "datatables.net-dt": "^2.0.3",
     "jquery": "^3.6.0",
@@ -26,10 +21,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/l-lin/angular-datatables.git"
+    "url": "git+https://github.com/dhshah-in/angular-datatables.git"
   },
   "bugs": {
-    "url": "https://github.com/l-lin/angular-datatables/issues"
+    "url": "https://github.com/dhshah-in/angular-datatables/issues"
   },
-  "homepage": "https://github.com/l-lin/angular-datatables#readme"
+  "homepage": "https://github.com/dhshah-in/angular-datatables#readme"
 }

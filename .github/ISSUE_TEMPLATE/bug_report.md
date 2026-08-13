@@ -16,8 +16,8 @@ A clear and concise description of what the bug is.
 
 ## :microscope: Minimal Reproduction
 
-<!-- 
-Do not add source code here. The chances of fixing the issue would be higher if you provide a small, reproducible repo to investigate. 
+<!--
+Do not add source code here. The chances of fixing the issue would be higher if you provide a small, reproducible repo to investigate.
 This is because, your source code will not include all the necessary bits that reproduce the issue. For example, you may have included source code for the Angular component that's causing the problem however you might have left out it's background Angular service which fetches/processes relevant data for the table OR your source code doesn't contain the JSON response object DataTables receives from your server which would mean we're missing context here.
 
 Please create and share minimal reproduction of the issue starting with this template: https://stackblitz.com/fork/angular-datatables-gitter
@@ -28,7 +28,7 @@ Share the link to the repo below along with step-by-step instructions to reprodu
 
 Issues that don't have enough info and can't be reproduced WILL be closed.
 
-You can read more about issue submission guidelines here: https://github.com/l-lin/angular-datatables/blob/master/.github/CONTRIBUTING.md#got-a-question-or-problem
+You can read more about issue submission guidelines here: https://github.com/dhshah-in/angular-datatables/blob/master/.github/CONTRIBUTING.md#got-a-question-or-problem
 
 -->
 
@@ -46,12 +46,12 @@ A clear and concise description of what you expected to happen.
 
 ## :globe_with_meridians: Your Environment
 
-- NodeJS version: 
-- Angular version: 
-- Angular CLI version: 
-- jQuery version: 
-- DataTables version: 
-- angular-datatables version: 
+- NodeJS version:
+- Angular version:
+- Angular CLI version:
+- jQuery version:
+- DataTables version:
+- angular-datatables version:
 
 ## :memo: Additional context
 
