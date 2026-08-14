@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, TemplateRef, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { IDemoNgComponentEventType } from './demo-ng-template-ref-event-type';
 import { DemoNgComponent } from './demo-ng-template-ref.component';
@@ -7,6 +7,7 @@ import { ADTSettings } from 'angular-datatables';
 @Component({
     selector: 'app-using-ng-template-ref',
     templateUrl: './using-ng-template-ref.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class UsingNgTemplateRefComponent implements OnInit, AfterViewInit {

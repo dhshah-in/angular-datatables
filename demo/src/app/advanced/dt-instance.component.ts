@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 
 import { DataTableDirective } from 'angular-datatables';
 import { Config } from 'datatables.net';
@@ -6,6 +6,7 @@ import { Config } from 'datatables.net';
 @Component({
     selector: 'app-dt-instance',
     templateUrl: 'dt-instance.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class DtInstanceComponent implements OnInit {

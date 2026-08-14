@@ -1,10 +1,11 @@
-import { Component } from "@angular/core";
+import { Component, ChangeDetectionStrategy } from "@angular/core";
 import { Config } from "datatables.net";
 
 @Component({
     selector: "app-new-server-side",
     templateUrl: "./new-server-side.component.html",
     styleUrls: ["./new-server-side.component.css"],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class NewServerSideComponent {

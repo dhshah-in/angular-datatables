@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Config } from 'datatables.net';
 import 'datatables.net-colreorder';
 
 @Component({
     selector: 'app-colreorder-extension',
     templateUrl: 'colreorder-extension.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ColreorderExtensionComponent implements OnInit {

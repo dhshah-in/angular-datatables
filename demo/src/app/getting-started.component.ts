@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { DtVersionService } from './dt-version.service';
 import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-getting-started',
     templateUrl: 'getting-started.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class GettingStartedComponent implements OnInit {

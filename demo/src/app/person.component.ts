@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Person } from './person';
@@ -8,6 +8,7 @@ import { PersonService } from './person.service';
     selector: 'app-person',
     templateUrl: 'person.component.html',
     providers: [PersonService],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class PersonComponent implements OnInit {

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Config } from 'datatables.net';
 
 @Component({
     selector: 'app-with-ajax',
     templateUrl: 'with-ajax.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class WithAjaxComponent implements OnInit {

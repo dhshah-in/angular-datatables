@@ -1,10 +1,11 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Config } from 'datatables.net';
 
 @Component({
     selector: 'app-load-dt-options-with-promise',
     templateUrl: 'load-dt-options-with-promise.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class LoadDtOptionsWithPromiseComponent implements OnInit {

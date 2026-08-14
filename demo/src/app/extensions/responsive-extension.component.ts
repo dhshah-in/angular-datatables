@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Config } from 'datatables.net-dt';
 import 'datatables.net-responsive';
 
 @Component({
     selector: 'app-responsive-extension',
     templateUrl: 'responsive-extension.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ResponsiveExtensionComponent implements OnInit {

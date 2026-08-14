@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import 'datatables.net-fixedcolumns-dt';
 
 @Component({
     selector: 'app-fixed-columns-extension',
     templateUrl: 'fixed-columns-extension.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class FixedColumnsExtensionComponent implements OnInit {

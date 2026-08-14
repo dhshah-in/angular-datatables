@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { Person } from '../person';
@@ -7,6 +7,7 @@ import { Config } from 'datatables.net';
 @Component({
     selector: 'app-angular-way',
     templateUrl: 'angular-way.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class AngularWayComponent implements OnDestroy, OnInit {

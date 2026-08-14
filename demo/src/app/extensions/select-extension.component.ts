@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Config } from 'datatables.net';
 import 'datatables.net-select';
 
 @Component({
     selector: 'app-select-extension',
     templateUrl: 'select-extension.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class SelectExtensionComponent implements OnInit {

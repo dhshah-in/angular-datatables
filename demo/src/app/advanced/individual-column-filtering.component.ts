@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 
 import { DataTableDirective } from 'angular-datatables';
 import { Config } from 'datatables.net';
@@ -6,6 +6,7 @@ import { Config } from 'datatables.net';
 @Component({
     selector: 'app-individual-column-filtering',
     templateUrl: 'individual-column-filtering.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class IndividualColumnFilteringComponent implements OnInit, AfterViewInit {

@@ -1,10 +1,11 @@
-import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChildren, ChangeDetectionStrategy } from '@angular/core';
 import { DataTableDirective } from 'angular-datatables';
 import { Config } from 'datatables.net';
 
 @Component({
     selector: 'app-multiple-tables',
     templateUrl: 'multiple-tables.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class MultipleTablesComponent implements OnInit {
