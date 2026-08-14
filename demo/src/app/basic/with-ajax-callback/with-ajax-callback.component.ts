@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Config } from 'datatables.net';
 import { DataTablesResponse } from '../../datatables-response.model';
 
 @Component({
     selector: 'app-with-ajax-callback',
     templateUrl: './with-ajax-callback.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class WithAjaxCallbackComponent implements OnInit {

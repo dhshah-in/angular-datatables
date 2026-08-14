@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, SecurityContext } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 
 import { DataTablesModule } from 'angular-datatables';
 
@@ -41,7 +41,7 @@ import { UsingNgPipeComponent } from './advanced/using-ng-pipe.component';
 import { CommonModule, CurrencyPipe, UpperCasePipe } from '@angular/common';
 
 // Markdown
-import { MarkdownModule, SANITIZE } from 'ngx-markdown';
+import { MarkdownComponent, provideMarkdown, SANITIZE } from 'ngx-markdown';
 import { BaseDemoComponent } from './base-demo/base-demo.component';
 import { FAQComponent } from './f-a-q/f-a-q.component';
 import { UsingNgTemplateRefComponent } from './advanced/using-ng-template-ref.component';
@@ -91,16 +91,18 @@ import { NewServerSideComponent } from './basic/new-server-side/new-server-side.
     ReactiveFormsModule,
     DataTablesModule,
     AppRoutingModule,
-    MarkdownModule.forRoot({
+    MarkdownComponent
+  ],
+  providers: [
+    UpperCasePipe,
+    CurrencyPipe,
+    provideHttpClient(withXhr(), withInterceptorsFromDi()),
+    provideMarkdown({
       sanitize: {
         provide: SANITIZE,
         useValue: SecurityContext.NONE
       }
-    })],
-  providers: [
-    UpperCasePipe,
-    CurrencyPipe,
-    provideHttpClient(withInterceptorsFromDi())
+    })
   ]
 })
 export class AppModule { }

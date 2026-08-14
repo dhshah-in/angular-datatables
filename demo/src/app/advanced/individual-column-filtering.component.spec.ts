@@ -1,5 +1,5 @@
 import { RouterTestingModule } from '@angular/router/testing';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 import { NO_ERRORS_SCHEMA, SecurityContext } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { DataTableDirective, DataTablesModule } from 'angular-datatables';
@@ -40,7 +40,7 @@ describe('IndividualColumnFilteringComponent', () => {
           }
         }),
         FormsModule],
-      providers: [provideHttpClient(withInterceptorsFromDi())]
+      providers: [provideHttpClient(withXhr(), withInterceptorsFromDi())]
     }).createComponent(IndividualColumnFilteringComponent);
 
     component = fixture.componentInstance;

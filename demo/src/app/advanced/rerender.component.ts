@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { DataTableDirective } from 'angular-datatables';
 import { Config } from 'datatables.net';
 import { Subject } from 'rxjs';
@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';
 @Component({
     selector: 'app-rerender',
     templateUrl: 'rerender.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class RerenderComponent implements AfterViewInit, OnDestroy, OnInit {

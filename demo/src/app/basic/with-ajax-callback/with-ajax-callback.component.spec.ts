@@ -1,4 +1,4 @@
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, withXhr } from '@angular/common/http';
 import { SecurityContext, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -30,7 +30,7 @@ describe('WithAjaxCallbackComponent', () => {
             useValue: SecurityContext.NONE
           }
         })],
-      providers: [provideHttpClient(withInterceptorsFromDi())]
+      providers: [provideHttpClient(withXhr(), withInterceptorsFromDi())]
     }).createComponent(WithAjaxCallbackComponent);
 
     component = fixture.componentInstance;

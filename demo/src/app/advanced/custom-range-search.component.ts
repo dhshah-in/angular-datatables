@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 
 import { DataTableDirective } from 'angular-datatables';
 import { Config } from 'datatables.net';
@@ -7,6 +7,7 @@ import { Config } from 'datatables.net';
 @Component({
     selector: 'app-custom-range-search',
     templateUrl: 'custom-range-search.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class CustomRangeSearchComponent implements OnDestroy, OnInit {

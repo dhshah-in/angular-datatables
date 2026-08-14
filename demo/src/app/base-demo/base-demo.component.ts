@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit, TemplateRef } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, TemplateRef, ChangeDetectionStrategy } from '@angular/core';
 import { DtVersionService } from '../dt-version.service';
 import { Subscription } from 'rxjs';
 
@@ -9,6 +9,7 @@ declare var $: JQueryStatic;
     selector: 'app-base-demo',
     templateUrl: './base-demo.component.html',
     styleUrls: ['./base-demo.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class BaseDemoComponent implements OnInit, OnDestroy {

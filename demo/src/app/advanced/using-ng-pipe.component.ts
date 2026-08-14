@@ -1,10 +1,11 @@
 import { CurrencyPipe, UpperCasePipe } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { ADTSettings } from 'angular-datatables';
 
 @Component({
     selector: 'app-using-ng-pipe',
     templateUrl: './using-ng-pipe.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class UsingNgPipeComponent implements OnInit {

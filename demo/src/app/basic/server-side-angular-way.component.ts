@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Person } from '../person';
 import { Config } from 'datatables.net';
 
@@ -6,6 +6,7 @@ import { Config } from 'datatables.net';
     selector: 'app-server-side-angular-way',
     templateUrl: 'server-side-angular-way.component.html',
     styleUrls: ['server-side-angular-way.component.css'],
+    changeDetection: ChangeDetectionStrategy.Eager,
     standalone: false
 })
 export class ServerSideAngularWayComponent {

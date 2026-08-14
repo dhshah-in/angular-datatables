@@ -1,6 +1,6 @@
 {
   "name": "@dev-aix/angular-datatables",
-  "version": "21.0.0",
+  "version": "22.0.0",
   "description": "Angular directive for DataTables",
   "keywords": [
     "Angular",
@@ -10,9 +10,9 @@
   "schematics": "./schematics/src/collection.json",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^21.0.0",
-    "@angular/core": "^21.0.0",
-    "@angular/platform-browser": "^21.0.0",
+    "@angular/common": "^22.0.0",
+    "@angular/core": "^22.0.0",
+    "@angular/platform-browser": "^22.0.0",
     "datatables.net": "^2.0.3",
     "datatables.net-dt": "^2.0.3",
     "jquery": "^3.6.0",
